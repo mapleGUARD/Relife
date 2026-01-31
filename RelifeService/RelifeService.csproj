@@ -1,9 +1,10 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk.Worker">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>dotnet-RelifeService-87868b8b-dd45-4eda-9d8f-a7b225e1119f</UserSecretsId>
     <OutputType>Exe</OutputType>
   </PropertyGroup>
 
@@ -12,4 +13,7 @@
     <PackageReference Include="Microsoft.Extensions.Hosting.WindowsServices" Version="10.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Relife.Core\Relife.Core.csproj" />
+  </ItemGroup>
 </Project>

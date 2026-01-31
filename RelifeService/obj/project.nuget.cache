@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EA1zoW3U40c=",
+  "dgSpecHash": "kQ6SIuRBOFs=",
   "success": true,
-  "projectFilePath": "/workspaces/Relife/Relife.Core/Relife.Core.csproj",
+  "projectFilePath": "/workspaces/Relife/RelifeService/RelifeService.csproj",
   "expectedPackageFiles": [
     "/home/codespace/.nuget/packages/microsoft.extensions.configuration/10.0.0/microsoft.extensions.configuration.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.configuration.abstractions/10.0.0/microsoft.extensions.configuration.abstractions.10.0.0.nupkg.sha512",
@@ -21,7 +21,6 @@
     "/home/codespace/.nuget/packages/microsoft.extensions.filesystemglobbing/10.0.0/microsoft.extensions.filesystemglobbing.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.hosting/10.0.0/microsoft.extensions.hosting.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.hosting.abstractions/10.0.0/microsoft.extensions.hosting.abstractions.10.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/microsoft.extensions.hosting.windowsservices/10.0.0/microsoft.extensions.hosting.windowsservices.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.logging/10.0.0/microsoft.extensions.logging.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.logging.abstractions/10.0.0/microsoft.extensions.logging.abstractions.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.logging.configuration/10.0.0/microsoft.extensions.logging.configuration.10.0.0.nupkg.sha512",
@@ -32,8 +31,7 @@
     "/home/codespace/.nuget/packages/microsoft.extensions.options/10.0.0/microsoft.extensions.options.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.options.configurationextensions/10.0.0/microsoft.extensions.options.configurationextensions.10.0.0.nupkg.sha512",
     "/home/codespace/.nuget/packages/microsoft.extensions.primitives/10.0.0/microsoft.extensions.primitives.10.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.diagnostics.eventlog/10.0.0/system.diagnostics.eventlog.10.0.0.nupkg.sha512",
-    "/home/codespace/.nuget/packages/system.serviceprocess.servicecontroller/10.0.0/system.serviceprocess.servicecontroller.10.0.0.nupkg.sha512"
+    "/home/codespace/.nuget/packages/system.diagnostics.eventlog/10.0.0/system.diagnostics.eventlog.10.0.0.nupkg.sha512"
   ],
   "logs": []
 }

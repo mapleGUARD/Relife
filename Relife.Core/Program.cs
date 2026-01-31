@@ -155,42 +155,51 @@ class Program
         var blockedProcessPath = args[0];
         var processName = Path.GetFileName(blockedProcessPath);
 
+        // Display blocking message
+        var message = $"\n" +
+                     $"╔════════════════════════════════════════════════════════╗\n" +
+                     $"║           🚫 ACCESS BLOCKED 🚫                         ║\n" +
+                     $"╟────────────────────────────────────────────────────────╢\n" +
+                     $"║  Process: {processName,-43} ║\n" +
+                     $"║                                                        ║\n" +
+                     $"║  This application is currently blocked by              ║\n" +
+                     $"║  Relife Enforcer.                                      ║\n" +
+                     $"║                                                        ║\n" +
+                     $"║  Reason: Active focus session in progress             ║\n" +
+                     $"║                                                        ║\n" +
+                     $"║  The enforcement will be lifted when the              ║\n" +
+                     $"║  session completes.                                    ║\n" +
+                     $"╚════════════════════════════════════════════════════════╝\n";
+
+        Console.WriteLine(message);
+        
         if (OperatingSystem.IsWindows())
         {
-#pragma warning disable CA1416 // Validate platform compatibility
-            // Show a message box to the user
-            var message = $"🚫 ACCESS BLOCKED\n\n" +
-                         $"Process: {processName}\n\n" +
-                         $"This application is currently blocked by Relife Enforcer.\n\n" +
-                         $"Reason: Active focus session in progress.\n" +
-                         $"The enforcement will be lifted when the session completes.";
-
-            var title = "Relife Enforcer - Process Blocked";
-
-            // Use Windows Forms MessageBox for better UI
+#pragma warning disable CA1416
+            // Also try to show a native Windows message box
             try
             {
-                System.Windows.Forms.MessageBox.Show(
-                    message,
-                    title,
-                    System.Windows.Forms.MessageBoxButtons.OK,
-                    System.Windows.Forms.MessageBoxIcon.Warning
-                );
+                var psi = new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = "cmd.exe",
+                    Arguments = $"/c msg * \"Relife Enforcer - Process Blocked\n\nProcess: {processName}\n\nThis application is blocked during your focus session.\"",
+                    CreateNoWindow = true,
+                    UseShellExecute = false
+                };
+                System.Diagnostics.Process.Start(psi);
             }
             catch
             {
-                // Fallback to console if MessageBox fails
-                Console.WriteLine(message);
-                Console.WriteLine("\nPress any key to exit...");
-                Console.ReadKey();
+                // Ignore if msg command fails
             }
 #pragma warning restore CA1416
         }
-        else
-        {
-            Console.WriteLine($"Process {processName} is blocked by Relife Enforcer.");
-        }
 
+        Console.WriteLine("Press any key to exit...");
+        
+        // Wait a moment so user can see the message
+        Task.Delay(3000).Wait();
+        
         // Exit immediately - do not launch the blocked process
         Environment.Exit(0);
     }

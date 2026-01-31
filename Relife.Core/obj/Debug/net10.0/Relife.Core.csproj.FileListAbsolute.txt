@@ -1,0 +1,12 @@
+/workspaces/Relife/Relife.Core/bin/Debug/net10.0/Relife.Core.deps.json
+/workspaces/Relife/Relife.Core/bin/Debug/net10.0/Relife.Core.dll
+/workspaces/Relife/Relife.Core/bin/Debug/net10.0/Relife.Core.pdb
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.AssemblyInfoInputs.cache
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.AssemblyInfo.cs
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.csproj.CoreCompileInputs.cache
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.sourcelink.json
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.dll
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/refint/Relife.Core.dll
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/Relife.Core.pdb
+/workspaces/Relife/Relife.Core/obj/Debug/net10.0/ref/Relife.Core.dll

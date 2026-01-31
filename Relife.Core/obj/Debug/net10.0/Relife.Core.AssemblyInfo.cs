@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Relife.Core")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+7efae8ae737134a64d7fe2384ff158aece53d29d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b4a540394ccecf157d8e8dcaaf00aec3469e7502")]
 [assembly: System.Reflection.AssemblyProductAttribute("Relife.Core")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Relife.Core")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -10,6 +10,14 @@ class Program
 {
     static void Main(string[] args)
     {
+        // Check if launched as IFEO debugger (process blocking)
+        if (args.Length > 0 && !args[0].StartsWith('-') && !IsKnownCommand(args[0]))
+        {
+            // Launched as debugger for a blocked process
+            HandleBlockedProcess(args);
+            return;
+        }
+
         // Check if running as Windows Service
         var isWindowsService = OperatingSystem.IsWindows() && WindowsServiceHelpers.IsWindowsService();
 
@@ -132,5 +140,58 @@ class Program
 
         // Run the service
         host.Run();
+    }
+
+    private static bool IsKnownCommand(string arg)
+    {
+        var knownCommands = new[] { "install", "configure-recovery", "show-recovery", "help", "--help", "-h" };
+        return knownCommands.Contains(arg.ToLowerInvariant());
+    }
+
+    private static void HandleBlockedProcess(string[] args)
+    {
+        // Extract the process name from the arguments
+        // When launched as IFEO debugger, args[0] contains the full path of the blocked process
+        var blockedProcessPath = args[0];
+        var processName = Path.GetFileName(blockedProcessPath);
+
+        if (OperatingSystem.IsWindows())
+        {
+#pragma warning disable CA1416 // Validate platform compatibility
+            // Show a message box to the user
+            var message = $"🚫 ACCESS BLOCKED\n\n" +
+                         $"Process: {processName}\n\n" +
+                         $"This application is currently blocked by Relife Enforcer.\n\n" +
+                         $"Reason: Active focus session in progress.\n" +
+                         $"The enforcement will be lifted when the session completes.";
+
+            var title = "Relife Enforcer - Process Blocked";
+
+            // Use Windows Forms MessageBox for better UI
+            try
+            {
+                System.Windows.Forms.MessageBox.Show(
+                    message,
+                    title,
+                    System.Windows.Forms.MessageBoxButtons.OK,
+                    System.Windows.Forms.MessageBoxIcon.Warning
+                );
+            }
+            catch
+            {
+                // Fallback to console if MessageBox fails
+                Console.WriteLine(message);
+                Console.WriteLine("\nPress any key to exit...");
+                Console.ReadKey();
+            }
+#pragma warning restore CA1416
+        }
+        else
+        {
+            Console.WriteLine($"Process {processName} is blocked by Relife Enforcer.");
+        }
+
+        // Exit immediately - do not launch the blocked process
+        Environment.Exit(0);
     }
 }
